@@ -19,6 +19,10 @@ data MessageTree = Leaf
                  | Node MessageTree LogMessage MessageTree
   deriving (Show, Eq)
 
+instance Ord LogMessage where
+  LogMessage _ ts1 _ `compare` LogMessage _ ts2 _ = ts1 `compare` ts2
+  _ `compare` _ = error "Compare error"
+
 -- | @testParse p n f@ tests the log file parser @p@ by running it
 --   on the first @n@ lines of file @f@.
 testParse :: (String -> [LogMessage])
