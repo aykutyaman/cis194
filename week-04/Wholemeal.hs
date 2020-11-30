@@ -58,16 +58,8 @@ foldTree = foldr insert Leaf
 -- xor [False, True, False] == True
 -- xor [False, True, False, False, True] == False
 
-xor' :: Bool -> Bool -> Bool
-xor' True False = True
-xor' False False = False
-xor' True True = False
-xor' False True = True
-
--- xor'' p1 p2 = (p1 || p1) && not (p1 && p2)
-
 xor :: [Bool] -> Bool
-xor = foldr xor' False
+xor = odd . foldr ((+) . (\b -> if b then 1 else 0)) 0
 
 -- 2. Implement map as a fold
 map' :: (a -> b) -> [a] -> [b]
