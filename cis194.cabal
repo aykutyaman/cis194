@@ -1,0 +1,23 @@
+Name:                   cis194
+Version:                0.0.0
+Author:                 Aykut Yaman <yaman.ayk@gmail.com>
+Maintainer:             Aykut Yaman <yaman.ayk@gmail.com>
+License:                BSD3
+License-File:           LICENSE
+-- Synopsis:               
+-- Description:            
+Cabal-Version:          >= 1.10
+Build-Type:             Simple
+
+Library
+  Default-Language:     Haskell2010
+  HS-Source-Dirs:       src
+  GHC-Options:          -Wall
+  Other-Modules:        
+  Build-Depends:        base >= 4 && < 5,
+                        mtl >= 2.2.2,
+                        mtl >= 2.2.2
+
+Source-Repository head
+  Type:                 git
+--  Location:  

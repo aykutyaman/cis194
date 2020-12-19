@@ -1,0 +1,75 @@
+
+./Tree.hs,230
+module Tree Tree0,1
+data Tree a = EmptyEmpty2,3
+            | Node Node3,4
+instance Foldable Foldable Tree7,8
+  foldMap foldMap8,9
+testTree testTree11,12
+newtype Any Any25,26
+newtype Any = Any { getAny getAny25,26
+
+./07-folds-monoids.lhs,1887
+ data Tree Tree35,36
+ data Tree a = EmptyEmpty35,36
+             | Node Node36,37
+ leaf leaf39,40
+ treeSize treeSize45,46
+ treeSum treeSum51,52
+ treeDepth treeDepth57,58
+ flatten flatten63,64
+ treeFold treeFold88,89
+ treeSize' treeSize'95,96
+ treeSum' treeSum'98,99
+ treeDepth' treeDepth'101,102
+ flatten' flatten'104,105
+ treeMax treeMax109,110
+ data ExprT ExprT120,121
+ data ExprT = Lit Lit120,121
+            | Add Add121,122
+            | Mul Mul122,123
+ eval eval124,125
+ exprTFold exprTFold131,132
+ eval2 eval2136,137
+ numLiterals numLiterals142,143
+ class Monoid Monoid161,162
+     mempty mempty162,163
+     mappend mappend163,164
+     mconcat mconcat165,166
+ (<(<>)168,169
+ instance Monoid Monoid [a]201,202
+   mempty mempty202,203
+   mappend mappend203,204
+ newtype Sum Sum211,212
+ getSum getSum214,215
+ instance Num Num a => Monoid (Sum a)217,218
+   mempty mempty218,219
+   mappend mappend219,220
+ newtype Product Product221,222
+ getProduct getProduct224,225
+ instance Num Num a => Monoid (Product a)227,228
+   mempty mempty228,229
+   mappend mappend229,230
+ lst lst235,236
+ prod prod238,239
+ instance (M(Monoid a, Monoid b) => Monoid (a, b)247,248
+   mempty mempty248,249
+   (a,b) `mappend`mappend249,250
+ newtype All All254,255
+ newtype All = All { getAll getAll254,255
+ instance Monoid Monoid All257,258
+   mempty mempty258,259
+   All x `mappend`mappend259,260
+ newtype Any Any261,262
+ newtype Any = Any { getAny getAny261,262
+ instance Monoid Monoid Any264,265
+   mempty mempty265,266
+   Any x `mappend`mappend266,267
+ instance Monoid Monoid b => Monoid (a -> b)272,273
+   mempty mempty273,274
+   mappend mappend274,275
+ mapp mapp276,277
+ map' map'279,280
+ instance Foldable Foldable Tree284,285
+  foldMap foldMap285,286
+ testTree testTree288,289
