@@ -15,7 +15,9 @@ Library
   GHC-Options:          -Wall
   Other-Modules:        
   Build-Depends:        base >= 4 && < 5,
-                        containers >= 0.6.2.1
+                        containers >= 0.6.2.1,
+                        hspec,
+                        QuickCheck >= 2.13.2
 
 Source-Repository head
   Type:                 git
