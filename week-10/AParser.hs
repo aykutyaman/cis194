@@ -60,13 +60,13 @@ posInt = Parser f
 ------------------------------------------------------------
 
 -- Exercise 1
--- Implement a Functor instance for Parser
+first :: (a -> b) -> (a,c) -> (b,c)
+first f (x,y) = (f x, y)
 
+-- Implement a Functor instance for Parser
 instance Functor Parser where
   -- fmap :: (a -> b) -> Parser a -> Parser b
-  fmap f pa = Parser (\s -> case runParser pa s of
-                              Nothing -> Nothing
-                              Just(n, out) -> Just (f n, out))
+  fmap f pa = Parser (\s -> (fmap (first f) . runParser pa) s)
 
 -- runParser ((+1) <$> posInt) "999ali" == Just (1000, "ali")
 -- TODO: quickCheck functor laws
@@ -78,10 +78,7 @@ instance Applicative Parser where
   pure x = Parser (\s -> Just(x, s))
 
   -- <*> :: Parser (a -> b) -> Parser a -> Parser b
-  pf <*> pa = Parser (\s -> case runParser pf s of
-                                      Nothing -> Nothing
-                                      Just (f, out) ->
-                                        runParser (fmap f pa) out)
+  pf <*> pa = Parser (\s -> fmap (first . fst) (runParser pf s) <*> runParser pa s)
 
 -- runParser (pure (+1) <*> posInt) "123ada" == Just (124,"ada")
 
