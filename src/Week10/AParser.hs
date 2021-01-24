@@ -8,6 +8,7 @@ import           Control.Applicative
 import           Data.Char
 
 import Test.QuickCheck
+import Test.QuickCheck.Property.Functor
 
 -- A parser for a value of type a is a function which takes a String
 -- represnting the input to be parsed, and succeeds or fails; if it
@@ -71,6 +72,26 @@ instance Functor Parser where
 -- runParser ((+1) <$> posInt) "999ali" == Just (1000, "ali")
 -- TODO: quickCheck functor laws
 
+functorIdentity :: (Functor f, Eq (f a)) => f a -> Bool
+functorIdentity f = fmap id f == f
+
+-- instance (Arbitrary a) => Arbitrary (Parser a) where
+--   arbitrary = do
+--     x <- 
+
+genMaybe :: Arbitrary a => Gen (Maybe a)
+genMaybe = do
+  x <- arbitrary
+  frequency [(1, return Nothing),
+             (3, return (Just x))]
+
+
+test :: IO ()
+test = do
+  -- quickCheck $ \x -> functorIdentity (x :: Parser Integer)
+  quickCheck $ property $ \x -> x + 1 > (x :: Int)
+
+
 -- Exercise 2
 -- Implement an Applicative instance for Parser
 instance Applicative Parser where
@@ -79,6 +100,9 @@ instance Applicative Parser where
 
   -- <*> :: Parser (a -> b) -> Parser a -> Parser b
   pf <*> pa = Parser (\s -> fmap (first . fst) (runParser pf s) <*> runParser pa s)
+  -- pf <*> pa = Parser (\s -> case runParser pf s of
+  --                                     Nothing -> Nothing
+  --                                     Just (f, out) -> runParser (fmap f pa) out)
 
 -- runParser (pure (+1) <*> posInt) "123ada" == Just (124,"ada")
 

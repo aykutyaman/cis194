@@ -1,0 +1,68 @@
+
+./LogAnalysis.hs,384
+module LogAnalysis LogAnalysis1,2
+mkMessageType mkMessageType9,10
+mkTimeStamp mkTimeStamp15,16
+mkMessageContent mkMessageContent21,22
+mkMessage mkMessage27,28
+parseMessage parseMessage32,33
+parse parse39,40
+insert insert43,44
+insert' insert'52,53
+build build60,61
+inOrder inOrder67,68
+isSevere isSevere75,76
+text text79,80
+whatWentWrong whatWentWrong83,84
+
+./ParserCombinators.hs,737
+module ParserCombinators ParserCombinators0,1
+report report6,7
+windSpeed windSpeed9,10
+windSpeed' windSpeed'28,29
+windSpeedParser windSpeedParser31,32
+digit digit39,40
+parseMaybe parseMaybe42,43
+isVowel isVowel48,49
+vowel vowel51,52
+atLeastOne atLeastOne54,55
+airport airport57,58
+timestamp timestamp63,64
+numbers numbers74,75
+windInfo windInfo77,78
+toMPS toMPS89,90
+gustParser gustParser95,96
+data WindInfo WindInfo100,101
+data WindInfo = WindInfoWindInfo100,101
+  { dir dir101,102
+  , speed speed102,103
+  , gusts gusts103,104
+data Report Report107,108
+data Report = ReportReport107,108
+    { station station108,109
+    , time time109,110
+    , wind wind110,111
+metar metar114,115
+
+./Log.hs,573
+module Log Log2,3
+data MessageType MessageType6,7
+data MessageType = InfoInfo6,7
+                 | WarningWarning7,8
+                 | Error Error8,9
+type TimeStamp TimeStamp11,12
+data LogMessage LogMessage13,14
+data LogMessage = LogMessage LogMessage13,14
+                | Unknown Unknown14,15
+data MessageTree MessageTree17,18
+data MessageTree = LeafLeaf17,18
+                 | Node Node18,19
+instance Ord Ord LogMessage21,22
+  LogMessage _ ts1 _ `compare`compare22,23
+testParse testParse27,28
+testWhatWentWrong testWhatWentWrong36,37
+
+./LogAnalysisP.hs,90
+module LogAnalysisP LogAnalysisP0,1
+parseMessage parseMessage11,12
+digit digit15,16

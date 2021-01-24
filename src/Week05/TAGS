@@ -1,0 +1,65 @@
+
+./Calc.hs,151
+module Calc Calc0,1
+eval eval10,11
+evalStr evalStr18,19
+class Expr Expr29,30
+  lit lit30,31
+instance Expr Expr ExprT32,33
+  lit lit33,34
+
+./StackVM.hs,573
+module StackVM StackVM0,1
+data StackVal StackVal4,5
+data StackVal = IVal IVal4,5
+data StackVal = IVal Integer | BVal BVal4,5
+data StackVal = IVal Integer | BVal Bool | Void Void4,5
+data StackExp StackExp7,8
+data StackExp = PushI PushI7,8
+              | PushB PushB8,9
+              | AddAdd9,10
+              | MulMul10,11
+              | AndAnd11,12
+              | OrOr12,13
+type Stack Stack15,16
+type Program Program16,17
+stackVM stackVM20,21
+errType errType23,24
+errUnderflow errUnderflow26,27
+execute execute30,31
+test test57,58
+
+./Parser.hs,648
+newtype State State13,14
+data Expr Expr16,17
+data Expr = Const Const16,17
+          | Add Add17,18
+          | Mul Mul18,19
+instance Functor Functor (State s)21,22
+    fmap fmap22,23
+instance Applicative Applicative (State s)24,25
+    pure pure25,26
+    State State26,27
+instance Alternative Alternative (State s)31,32
+    empty empty32,33
+    State State33,34
+type Parser Parser37,38
+digit digit40,41
+num num48,49
+space space53,54
+eatSpace eatSpace61,62
+char char65,66
+op op72,73
+eof eof76,77
+parseExpr parseExpr83,84
+execParser execParser91,92
+evalParser evalParser95,96
+parseExp parseExp100,101
+
+./ExprT.hs,102
+module ExprT ExprT0,1
+data ExprT = Lit Lit2,3
+           | Add Add3,4
+           | Mul Mul4,5
+
+./Expressions.hs,0
